@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1075195371725",
+    "firebase_url": "https://sleek-ad28e.firebaseio.com",
+    "project_id": "sleek-ad28e",
+    "storage_bucket": "sleek-ad28e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075195371725:android:1f48bbebf2cafc0b",
+        "android_client_info": {
+          "package_name": "mtechviral.fdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1075195371725-iamkasdvioadigjtukce5ocdq7si6m43.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdQJWBFIjTHAx1h5Wvw3roTJLJWPNklk8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
