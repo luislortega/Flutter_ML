@@ -21,7 +21,7 @@ dependencies:
   cupertino_icons: 
   #firebase_analytics: 
   mlkit:
-  image_picker:
+  image_picker: 
   image:
     
 dev_dependencies:

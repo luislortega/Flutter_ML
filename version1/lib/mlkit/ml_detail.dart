@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:mlkit/mlkit.dart';
-import 'package:image/image.dart' as img;
 
 class MLDetail extends StatefulWidget {
   final File _file;
@@ -57,33 +56,13 @@ class _MLDetailState extends State<MLDetail> {
           });
         }
       } else if (widget._scannerType == LABEL_SCANNER) {
-
-        FirebaseModelInterpreter interpreter = FirebaseModelInterpreter.instance;
-FirebaseModelManager manager = FirebaseModelManager.instance;
-manager.registerCloudModelSource(
-        FirebaseCloudModelSource(modelName: "mobilenet_v1_224_quant"));
-
-var imageBytes = (await rootBundle.load("assets/mountain.jpg")).buffer;
-img.Image image = img.decodeJpg(imageBytes.asUint8List());
-image = img.copyResize(image, 224, 224);
-var results = await interpreter.run(
-                    "mobilenet_v1_224_quant",
-                    FirebaseModelInputOutputOptions(
-                        0,
-                        FirebaseModelDataType.BYTE,
-                        [1, 224, 224, 3],
-                        0,
-                        FirebaseModelDataType.BYTE,
-                        [1, 1001]),
-                    imageToByteList(image));
-
-        /*
+        
         currentLabels = await labelDetector.detectFromPath(widget._file.path);
         if (this.mounted) {
           setState(() {
             _currentLabelLabels = currentLabels;
           });
-        }*/
+        }
       } else if (widget._scannerType == FACE_SCANNER) {
         currentLabels = await faceDetector.detectFromPath(widget._file.path);
         if (this.mounted) {
@@ -244,49 +223,6 @@ var results = await interpreter.run(
             Size(info.image.width.toDouble(), info.image.height.toDouble())));
     return completer.future;
   }
-
-  
-// int model
-Uint8List imageToByteList(img.Image image) {
-    var _inputSize = 224;
-    var convertedBytes = new Uint8List(1 * _inputSize * _inputSize * 3);
-    var buffer = new ByteData.view(convertedBytes.buffer);
-    int pixelIndex = 0;
-    for (var i = 0; i < _inputSize; i++) {
-      for (var j = 0; j < _inputSize; j++) {
-        var pixel = image.getPixel(i, j);
-        buffer.setUint8(pixelIndex, (pixel >> 16) & 0xFF);
-        pixelIndex++;
-        buffer.setUint8(pixelIndex, (pixel >> 8) & 0xFF);
-        pixelIndex++;
-        buffer.setUint8(pixelIndex, (pixel) & 0xFF);
-        pixelIndex++;
-      }
-    }
-    return convertedBytes;
-  }
-
-// float model
-Uint8List imageToByteList(img.Image image) {
-  var _inputSize = 224;
-  var convertedBytes = Float32List(1 * _inputSize * _inputSize * 3);
-  var buffer = Float32List.view(convertedBytes.buffer);
-  int pixelIndex = 0;
-  for (var i = 0; i < _inputSize; i++) {
-    for (var j = 0; j < _inputSize; j++) {
-      var pixel = image.getPixel(i, j);
-      buffer[pixelIndex] = ((pixel >> 16) & 0xFF) / 255;
-      pixelIndex += 1;
-      buffer[pixelIndex] = ((pixel >> 8) & 0xFF) / 255;
-      pixelIndex += 1;
-      buffer[pixelIndex] = ((pixel) & 0xFF) / 255;
-      pixelIndex += 1;
-    }
-  }
-  return convertedBytes.buffer.asUint8List();
-}
-
-  
 }
 
 /*
