@@ -22,7 +22,8 @@ dependencies:
   #firebase_analytics: 
   mlkit:
   image_picker:
-
+  image:
+    
 dev_dependencies:
   flutter_test:
     sdk: flutter

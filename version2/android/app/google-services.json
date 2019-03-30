@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "1075195371725",
-    "firebase_url": "https://sleek-ad28e.firebaseio.com",
-    "project_id": "sleek-ad28e",
-    "storage_bucket": "sleek-ad28e.appspot.com"
+    "project_number": "979402262102",
+    "firebase_url": "https://fir-v3-f10fb.firebaseio.com",
+    "project_id": "fir-v3-f10fb",
+    "storage_bucket": "fir-v3-f10fb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1075195371725:android:1f48bbebf2cafc0b",
+        "mobilesdk_app_id": "1:979402262102:android:a65b828f7786d2d8",
         "android_client_info": {
-          "package_name": "mtechviral.fdemo"
+          "package_name": "com.example.vision2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1075195371725-iamkasdvioadigjtukce5ocdq7si6m43.apps.googleusercontent.com",
+          "client_id": "979402262102-62c4vn68i1jaedasnjif05pbkkb30sjs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAdQJWBFIjTHAx1h5Wvw3roTJLJWPNklk8"
+          "current_key": "AIzaSyCSt-FDaB-NhKeQZ6Of6b79mCcCU--GVkQ"
         }
       ],
       "services": {
